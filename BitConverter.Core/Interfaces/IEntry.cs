@@ -2,7 +2,7 @@
 {
     public interface IEntry
     {
-        string FloatPart { get; }
+        string IntegerPart { get; }
         string DecimalPart { get; }
     }
 }

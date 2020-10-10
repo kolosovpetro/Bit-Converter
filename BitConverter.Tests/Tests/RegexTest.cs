@@ -14,8 +14,9 @@ namespace BitConverter.Tests.Tests
             Validator.IsValid("123.456").Should().BeTrue();
             Validator.IsValid(".456").Should().BeTrue();
             Validator.IsValid("asda.asd").Should().BeFalse();
-            Validator.IsValid("123,2").Should().BeFalse();
-            Validator.IsValid(",023").Should().BeFalse();
+            Validator.IsValid("123,2").Should().BeTrue();
+            Validator.IsValid(",023").Should().BeTrue();
+            Validator.IsValid("0001").Should().BeTrue();
         }
     }
 }

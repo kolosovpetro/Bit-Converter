@@ -11,5 +11,10 @@ namespace BitConverter.Validators
             var match = Regex.Match(input);
             return match.Success;
         }
+
+        public static bool IsDotSeparated(string input)
+        {
+            return input.Contains('.');
+        }
     }
 }
