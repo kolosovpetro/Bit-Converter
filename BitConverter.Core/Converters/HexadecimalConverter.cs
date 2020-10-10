@@ -2,11 +2,7 @@
 
 namespace BitConverter.Converters
 {
-    public class HexadecimalConverter : IConverter
+    public class HexadecimalConverter
     {
-        public string Convert(string input)
-        {
-            throw new System.NotImplementedException();
-        }
     }
 }

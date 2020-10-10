@@ -5,4 +5,8 @@
         <RootNamespace>BitConverter</RootNamespace>
     </PropertyGroup>
 
+    <ItemGroup>
+      <Folder Include="Validators" />
+    </ItemGroup>
+
 </Project>

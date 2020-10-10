@@ -2,11 +2,7 @@
 
 namespace BitConverter.Converters
 {
-    public class OctalConverter : IConverter
+    public class OctalConverter
     {
-        public string Convert(string input)
-        {
-            throw new System.NotImplementedException();
-        }
     }
 }

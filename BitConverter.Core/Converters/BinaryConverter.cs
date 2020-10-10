@@ -2,11 +2,7 @@
 
 namespace BitConverter.Converters
 {
-    public class BinaryConverter: IConverter
+    public class BinaryConverter
     {
-        public string Convert(string input)
-        {
-            throw new System.NotImplementedException();
-        }
     }
 }

@@ -2,11 +2,7 @@
 
 namespace BitConverter.Converters
 {
-    public class DecimalConverter : IConverter
+    public class DecimalConverter
     {
-        public string Convert(string input)
-        {
-            throw new System.NotImplementedException();
-        }
     }
 }
