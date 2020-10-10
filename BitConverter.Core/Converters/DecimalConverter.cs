@@ -1,8 +1,10 @@
-﻿using BitConverter.Interfaces;
-
-namespace BitConverter.Converters
+﻿namespace BitConverter.Converters
 {
-    public class DecimalConverter
+    public class DecimalConverter : BaseConverter
     {
+        public override string Convert(string input, int inputBase)
+        {
+            throw new System.NotImplementedException();
+        }
     }
 }

@@ -2,6 +2,9 @@
 {
     public interface IConverter
     {
-        string Convert(string input, int inputBase, int toBase);
+        /// <summary>
+        /// Converts an input of a string to particular bitcode related to output base.
+        /// </summary>
+        string Convert(string input, int inputBase);
     }
 }

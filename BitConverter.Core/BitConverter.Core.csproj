@@ -6,7 +6,7 @@
     </PropertyGroup>
 
     <ItemGroup>
-      <Folder Include="Validators" />
+      <Folder Include="Entities" />
     </ItemGroup>
 
 </Project>
