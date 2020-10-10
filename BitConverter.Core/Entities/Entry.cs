@@ -30,7 +30,7 @@ namespace BitConverter.Entities
 
             if (currentInput.First() == Separator.Dot)
             {
-                IntegerPart = "0";
+                IntegerPart = null;
                 DecimalPart = new string(currentInput.Skip(1).ToArray());
                 return;
             }
@@ -45,19 +45,19 @@ namespace BitConverter.Entities
             else
             {
                 IntegerPart = currentInput;
-                DecimalPart = "0";
+                DecimalPart = null;
             }
         }
 
         public override string ToString()
         {
             if (IsOctal)
-                return Prefix.Octal + IntegerPart + DecimalPart;
+                return Prefix.Octal + IntegerPart + Separator.Dot + DecimalPart;
 
             if (IsHexadecimal)
-                return Prefix.Hexadecimal + IntegerPart + DecimalPart;
+                return Prefix.Hexadecimal + IntegerPart + Separator.Dot + DecimalPart;
 
-            return IntegerPart + DecimalPart;
+            return IntegerPart + Separator.Dot + DecimalPart;
         }
     }
 }

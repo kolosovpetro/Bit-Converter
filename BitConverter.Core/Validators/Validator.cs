@@ -1,4 +1,5 @@
-﻿using System.Text.RegularExpressions;
+﻿using System.Linq;
+using System.Text.RegularExpressions;
 
 namespace BitConverter.Validators
 {
@@ -12,9 +13,9 @@ namespace BitConverter.Validators
             return match.Success;
         }
 
-        public static bool IsDotSeparated(string input)
+        public static bool IsProperBinary(string input)
         {
-            return input.Contains('.');
+            return input.All(x => x == '0' || x == '1');
         }
     }
 }
