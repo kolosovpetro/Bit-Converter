@@ -2,9 +2,10 @@
 {
     public interface IConverter
     {
-        /// <summary>
-        /// Converts an input of a string to particular bitcode related to output base.
-        /// </summary>
+        /*
+         * This method converts particular IEntity which is under roof to new one, depends on base of
+         * concrete converter
+         */
         IEntry Convert();
     }
 }
