@@ -15,7 +15,7 @@ namespace BitConverter.Tests.Tests
         {
             IEntry entry = new Entry("123", 10);
             entry.IntegerPart.Should().Be("123");
-            entry.DecimalPart.Should().Be("0");
+            entry.FloatPart.Should().BeNull();
             entry.Base.Should().Be(10);
         }
 
@@ -24,7 +24,7 @@ namespace BitConverter.Tests.Tests
         {
             IEntry entry = new Entry("123.456", 10);
             entry.IntegerPart.Should().Be("123");
-            entry.DecimalPart.Should().Be("456");
+            entry.FloatPart.Should().Be("456");
             entry.Base.Should().Be(10);
         }
 
@@ -33,7 +33,7 @@ namespace BitConverter.Tests.Tests
         {
             IEntry entry = new Entry("123,456", 10);
             entry.IntegerPart.Should().Be("123");
-            entry.DecimalPart.Should().Be("456");
+            entry.FloatPart.Should().Be("456");
             entry.Base.Should().Be(10);
         }
 
@@ -41,8 +41,8 @@ namespace BitConverter.Tests.Tests
         public void Float_Number_Test_3()
         {
             IEntry entry = new Entry(",456", 10);
-            entry.IntegerPart.Should().Be("0");
-            entry.DecimalPart.Should().Be("456");
+            entry.IntegerPart.Should().BeNull();
+            entry.FloatPart.Should().Be("456");
             entry.Base.Should().Be(10);
         }
 

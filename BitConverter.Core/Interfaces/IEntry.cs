@@ -4,6 +4,6 @@
     {
         int Base { get; set; }
         string IntegerPart { get; set; }
-        string DecimalPart { get; set; }
+        string FloatPart { get; set; }
     }
 }

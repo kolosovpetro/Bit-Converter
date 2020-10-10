@@ -1,5 +1,6 @@
 ﻿using System.Linq;
 using System.Text.RegularExpressions;
+using BitConverter.Auxiliaries;
 
 namespace BitConverter.Validators
 {
@@ -15,7 +16,22 @@ namespace BitConverter.Validators
 
         public static bool IsProperBinary(string input)
         {
-            return input.All(x => x == '0' || x == '1');
+            return input.All(x => BitTable.BinaryTable.Contains(x));
+        }
+
+        public static bool IsProperOctal(string input)
+        {
+            return input.All(x => BitTable.OctalTable.Contains(x));
+        }
+        
+        public static bool IsProperDecimal(string input)
+        {
+            return input.All(x => BitTable.DecimalTable.Contains(x));
+        }
+
+        public static bool IsProperHexadecimal(string input)
+        {
+            return input.All(x => BitTable.HexadecimalTable.Contains(x));
         }
     }
 }

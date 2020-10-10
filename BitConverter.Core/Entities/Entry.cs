@@ -10,7 +10,7 @@ namespace BitConverter.Entities
     {
         public int Base { get; set; }
         public string IntegerPart { get; set; }
-        public string DecimalPart { get; set; }
+        public string FloatPart { get; set; }
 
         private bool IsOctal => Base == 8;
         private bool IsHexadecimal => Base == 16;
@@ -31,7 +31,7 @@ namespace BitConverter.Entities
             if (currentInput.First() == Separator.Dot)
             {
                 IntegerPart = null;
-                DecimalPart = new string(currentInput.Skip(1).ToArray());
+                FloatPart = new string(currentInput.Skip(1).ToArray());
                 return;
             }
 
@@ -40,24 +40,24 @@ namespace BitConverter.Entities
             if (split.Length == 2)
             {
                 IntegerPart = split[0];
-                DecimalPart = split[1];
+                FloatPart = split[1];
             }
             else
             {
                 IntegerPart = currentInput;
-                DecimalPart = null;
+                FloatPart = null;
             }
         }
 
         public override string ToString()
         {
             if (IsOctal)
-                return Prefix.Octal + IntegerPart + Separator.Dot + DecimalPart;
+                return Prefix.Octal + IntegerPart + Separator.Dot + FloatPart;
 
             if (IsHexadecimal)
-                return Prefix.Hexadecimal + IntegerPart + Separator.Dot + DecimalPart;
+                return Prefix.Hexadecimal + IntegerPart + Separator.Dot + FloatPart;
 
-            return IntegerPart + Separator.Dot + DecimalPart;
+            return IntegerPart + Separator.Dot + FloatPart;
         }
     }
 }
