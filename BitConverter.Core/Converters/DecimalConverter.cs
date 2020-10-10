@@ -1,10 +1,6 @@
 ﻿namespace BitConverter.Converters
 {
-    public class DecimalConverter : BaseConverter
+    public class DecimalConverter
     {
-        public override string Convert(string input, int inputBase)
-        {
-            throw new System.NotImplementedException();
-        }
     }
 }

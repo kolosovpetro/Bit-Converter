@@ -1,10 +1,6 @@
 ﻿namespace BitConverter.Converters
 {
-    public class HexadecimalConverter : BaseConverter
+    public class HexadecimalConverter
     {
-        public override string Convert(string input, int inputBase)
-        {
-            throw new System.NotImplementedException();
-        }
     }
 }

@@ -1,10 +1,6 @@
 ﻿namespace BitConverter.Converters
 {
-    public class BinaryConverter : BaseConverter
+    public class BinaryConverter
     {
-        public override string Convert(string input, int inputBase)
-        {
-            throw new System.NotImplementedException();
-        }
     }
 }

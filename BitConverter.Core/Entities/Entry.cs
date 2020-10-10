@@ -8,13 +8,23 @@ namespace BitConverter.Entities
 {
     public class Entry : IEntry
     {
-        public string IntegerPart { get; }
-        public string DecimalPart { get; }
+        public int Base { get; set; }
+        public string IntegerPart { get; set; }
+        public string DecimalPart { get; set; }
 
-        public Entry(string input)
+        private bool IsOctal => Base == 8;
+        private bool IsHexadecimal => Base == 16;
+
+        public Entry()
+        {
+        }
+
+        public Entry(string input, int inputBase)
         {
             if (!Validator.IsValid(input))
                 throw new InvalidFormatException("Entered number has a wrong format.");
+
+            Base = inputBase;
 
             var currentInput = input.Replace(Separator.Comma, Separator.Dot);
 
@@ -37,6 +47,17 @@ namespace BitConverter.Entities
                 IntegerPart = currentInput;
                 DecimalPart = "0";
             }
+        }
+
+        public override string ToString()
+        {
+            if (IsOctal)
+                return Prefix.Octal + IntegerPart + DecimalPart;
+
+            if (IsHexadecimal)
+                return Prefix.Hexadecimal + IntegerPart + DecimalPart;
+
+            return IntegerPart + DecimalPart;
         }
     }
 }

@@ -11,8 +11,6 @@ namespace BitConverter.Tests.Tests
         [Test]
         public void Convert_From_Decimal_To_Binary_Integer()
         {
-            IConverter binaryConverter = new BinaryConverter();
-            binaryConverter.Convert("26", 10).Should().Be("11010");
         }
     }
 }

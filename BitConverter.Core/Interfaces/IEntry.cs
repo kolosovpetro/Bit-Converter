@@ -2,7 +2,8 @@
 {
     public interface IEntry
     {
-        string IntegerPart { get; }
-        string DecimalPart { get; }
+        int Base { get; set; }
+        string IntegerPart { get; set; }
+        string DecimalPart { get; set; }
     }
 }
