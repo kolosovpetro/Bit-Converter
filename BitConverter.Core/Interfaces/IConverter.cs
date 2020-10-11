@@ -2,10 +2,9 @@
 {
     public interface IConverter
     {
-        /*
-         * This method converts particular IEntity which is under roof to new one, depends on base of
-         * concrete converter
-         */
+        /// <summary>
+        /// Returns converted entry
+        /// </summary>
         IEntry Convert();
     }
 }

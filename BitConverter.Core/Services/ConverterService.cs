@@ -3,10 +3,11 @@ using System.Collections.Generic;
 using System.Globalization;
 using System.Linq;
 using System.Text;
-using BitConverter.Entities;
+using BitConverter.Auxiliaries;
 using BitConverter.Interfaces;
+using BitConverter.Models;
 
-namespace BitConverter.Auxiliaries
+namespace BitConverter.Services
 {
     public static class ConverterService
     {
@@ -37,7 +38,7 @@ namespace BitConverter.Auxiliaries
         public static string ConvertFloatPartToDecimal(IEntry entry)
         {
             if (entry.Base == 10)
-                return entry.IntegerPart;
+                return entry.FloatPart;
 
             Builder.Clear();
 

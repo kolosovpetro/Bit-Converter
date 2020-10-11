@@ -1,5 +1,6 @@
 ﻿using BitConverter.Auxiliaries;
 using BitConverter.Entities;
+using BitConverter.Services;
 using FluentAssertions;
 using NUnit.Framework;
 

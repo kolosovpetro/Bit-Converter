@@ -1,7 +1,7 @@
 ﻿using System;
 using BitConverter.Auxiliaries;
 
-namespace BitConverter.Entities
+namespace BitConverter.Models
 {
     public class ConvertToDecimalModel
     {
