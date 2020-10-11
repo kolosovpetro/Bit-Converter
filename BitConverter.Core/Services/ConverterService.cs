@@ -109,33 +109,53 @@ namespace BitConverter.Services
         /// <summary>
         /// Converts decimal integer part to particular base
         /// </summary>
-        public static string ConvertIntegralPartFromDecimal(INumber entry, int newBase)
+        public static string ConvertIntegerPartFromDecimal(INumber entry, int newBase)
         {
+            if (newBase == 10)
+                return entry.IntegerPart;
+
             var integralPart = int.Parse(entry.IntegerPart);
             var stack = new Stack<string>();
-            
+
 
             while (integralPart > 0)
             {
                 var remainder = integralPart % newBase;
-                
-                switch (remainder > 9)
-                {
-                    case true:
-                        stack.Push(BitTable.HexadecimalTable[remainder].ToString());
-                        break;
-                    default:
-                        stack.Push(remainder.ToString());
-                        break;
-                }
-                
+                stack.Push(BitTable.HexadecimalTable[remainder].ToString());
                 integralPart /= newBase;
             }
 
             Builder.Clear();
 
-            while (stack.Any()) 
+            while (stack.Any())
                 Builder.Append(stack.Pop());
+
+            return Builder.ToString();
+        }
+
+        /// <summary>
+        /// This converts decimal float in number model to desired base
+        /// </summary>
+        public static string ConvertFloatPartFromDecimal(INumber number, int newBase)
+        {
+            if (newBase == 10)
+                return Math.Round(double.Parse(number.FloatPart)).ToString(CultureInfo.CurrentCulture);
+
+            var currentFloat = double.Parse(number.FloatPart);
+
+            var queue = new Queue<string>();
+
+            for (var i = 0; i < Precision; i++)
+            {
+                currentFloat *= newBase;
+                int item = (int) currentFloat;
+                queue.Enqueue(item.ToString());
+            }
+
+            Builder.Clear();
+
+            while (queue.Any())
+                Builder.Append(queue.Dequeue());
 
             return Builder.ToString();
         }

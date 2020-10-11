@@ -8,8 +8,6 @@ namespace BitConverter.Tests.Tests
     [TestFixture]
     public class ConverterServiceIntegerPartConvertTest
     {
-        // hexadecimal fails, need to revise regex
-        
         [Test]
         public void Integer_Part_Convert_To_Decimal()
         {
@@ -26,14 +24,16 @@ namespace BitConverter.Tests.Tests
         [Test]
         public void Integer_Part_Convert_From_Decimal()
         {
-            ConverterService.ConvertIntegralPartFromDecimal(new NumberModel("1000", 10), 2)
+            ConverterService.ConvertIntegerPartFromDecimal(new NumberModel("1000", 10), 2)
                 .Should().Be("1111101000");
-            ConverterService.ConvertIntegralPartFromDecimal(new NumberModel("243", 10), 8)
+            ConverterService.ConvertIntegerPartFromDecimal(new NumberModel("243", 10), 8)
                 .Should().Be("363");
-            ConverterService.ConvertIntegralPartFromDecimal(new NumberModel("1000", 10), 16)
+            ConverterService.ConvertIntegerPartFromDecimal(new NumberModel("1000", 10), 16)
                 .Should().Be("3E8");
-            ConverterService.ConvertIntegralPartFromDecimal(new NumberModel("123131", 10), 16)
+            ConverterService.ConvertIntegerPartFromDecimal(new NumberModel("123131", 10), 16)
                 .Should().Be("1E0FB");
+            ConverterService.ConvertIntegerPartFromDecimal(new NumberModel("123131", 10), 10)
+                .Should().Be("123131");
         }
     }
 }

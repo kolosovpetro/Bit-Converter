@@ -9,7 +9,7 @@ namespace BitConverter.Tests.Tests
     public class ConvertServiceFloatPartConvertTest
     {
         [Test]
-        public void Convert_Float_Part_Test()
+        public void Convert_Float_Part_To_Decimal_Test()
         {
             var test1 = ConverterService.ConvertFloatPartToDecimal(new NumberModel("123.763", 8));
             double.Parse(test1).Should().Be(0.9746);
@@ -23,6 +23,13 @@ namespace BitConverter.Tests.Tests
             double.Parse(test5).Should().Be(0.101);
             var test6 = ConverterService.ConvertFloatPartToDecimal(new NumberModel("10101.123456", 10));
             double.Parse(test6).Should().Be(0.1235);
+        }
+
+        [Test]
+        public void Convert_Float_Part_From_Decimal()
+        {
+            ConverterService.ConvertFloatPartFromDecimal(new NumberModel("123.372", 10), 2)
+                .Should().Be("010101");
         }
     }
 }
