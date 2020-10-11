@@ -1,6 +1,7 @@
 ﻿using System.Linq;
 using System.Text.RegularExpressions;
 using BitConverter.Auxiliaries;
+using BitConverter.Exceptions;
 
 namespace BitConverter.Validators
 {
@@ -16,22 +17,40 @@ namespace BitConverter.Validators
 
         public static bool IsProperBinary(string input)
         {
-            return input.All(x => BitTable.BinaryTable.Contains(x));
+            return string.IsNullOrEmpty(input) || input.All(x => BitTable.BinaryTable.Contains(x));
         }
 
         public static bool IsProperOctal(string input)
         {
-            return input.All(x => BitTable.OctalTable.Contains(x));
+            return string.IsNullOrEmpty(input) || input.All(x => BitTable.OctalTable.Contains(x));
         }
-        
+
         public static bool IsProperDecimal(string input)
         {
-            return input.All(x => BitTable.DecimalTable.Contains(x));
+            return string.IsNullOrEmpty(input) || input.All(x => BitTable.DecimalTable.Contains(x));
         }
 
         public static bool IsProperHexadecimal(string input)
         {
-            return input.All(x => BitTable.HexadecimalTable.Contains(x));
+            return string.IsNullOrEmpty(input) || input.All(x => BitTable.HexadecimalTable.Contains(x));
+        }
+
+        // this is to verify proper format on entry
+        public static bool IsProperNumber(string input, int inputBase)
+        {
+            switch (inputBase)
+            {
+                case 2:
+                    return IsProperBinary(input);
+                case 8:
+                    return IsProperOctal(input);
+                case 10:
+                    return IsProperDecimal(input);
+                case 16:
+                    return IsProperHexadecimal(input);
+                default:
+                    throw new UnsupportedBaseException("Provided base is not supported.");
+            }
         }
     }
 }

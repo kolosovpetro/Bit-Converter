@@ -30,7 +30,6 @@ namespace BitConverter.Entities
 
             if (currentInput.First() == Separator.Dot)
             {
-                IntegerPart = null;
                 FloatPart = new string(currentInput.Skip(1).ToArray());
                 return;
             }
@@ -45,7 +44,6 @@ namespace BitConverter.Entities
             else
             {
                 IntegerPart = currentInput;
-                FloatPart = null;
             }
         }
 

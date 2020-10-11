@@ -12,6 +12,8 @@ namespace BitConverter.Tests.Tests
         {
             Validator.IsProperHexadecimal("asda").Should().BeFalse();
             Validator.IsProperHexadecimal("12312").Should().BeTrue();
+            Validator.IsProperHexadecimal("").Should().BeTrue();
+            Validator.IsProperHexadecimal(null).Should().BeTrue();
             Validator.IsProperHexadecimal("12312BFD").Should().BeTrue();
             Validator.IsProperHexadecimal("12312BFDZ").Should().BeFalse();
         }
