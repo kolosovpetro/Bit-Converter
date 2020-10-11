@@ -19,6 +19,10 @@ namespace BitConverter.Tests.Tests
             double.Parse(test3).Should().Be(0.6836);
             var test4 = ConverterService.ConvertFloatPartToDecimal(new Entry("10101.10101", 2));
             double.Parse(test4).Should().Be(0.6562);
+            var test5 = ConverterService.ConvertFloatPartToDecimal(new Entry("10101.10101", 10));
+            double.Parse(test5).Should().Be(0.101);
+            var test6 = ConverterService.ConvertFloatPartToDecimal(new Entry("10101.123456", 10));
+            double.Parse(test6).Should().Be(0.1235);
         }
     }
 }

@@ -3,6 +3,9 @@ using BitConverter.Auxiliaries;
 
 namespace BitConverter.Models
 {
+    /// <summary>
+    /// This model helps to covert some entry to decimal in easier way
+    /// </summary>
     public class ConvertToDecimalModel
     {
         public char Bit { get; set; }

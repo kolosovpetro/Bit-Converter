@@ -12,8 +12,11 @@ namespace BitConverter.Services
     public static class ConverterService
     {
         private static readonly StringBuilder Builder = new StringBuilder();
-        private static readonly int Precision = 4;
-
+        private const int Precision = 4;
+        
+        /// <summary>
+        /// This converts only INTEGER part of Entry
+        /// </summary>
         public static string ConvertIntegerPartToDecimal(IEntry entry)
         {
             if (entry.Base == 10)
@@ -35,10 +38,13 @@ namespace BitConverter.Services
             return result.ToString(CultureInfo.CurrentCulture);
         }
         
+        /// <summary>
+        /// This converts only FLOAT part of an entry
+        /// </summary>
         public static string ConvertFloatPartToDecimal(IEntry entry)
         {
             if (entry.Base == 10)
-                return entry.FloatPart;
+                return Math.Round(double.Parse("0," + entry.FloatPart), Precision).ToString(CultureInfo.CurrentCulture);
 
             Builder.Clear();
 
@@ -55,10 +61,11 @@ namespace BitConverter.Services
 
             return Math.Round(result, Precision).ToString(CultureInfo.CurrentCulture);
         }
-
-        /*
-         * It selects the enumerable of convert model in order to be converted to decimal integer
-         */
+        
+        /// <summary>
+        /// This gives an enumeration of models, which helps to perform easier conversion from
+        /// integer part of an entry to decimal
+        /// </summary>
         public static IEnumerable<ConvertToDecimalModel> ConvertIntegerModel(IEntry entry)
         {
             var hexTable = BitTable.HexadecimalTable;
@@ -77,6 +84,10 @@ namespace BitConverter.Services
             }
         }
 
+        /// <summary>
+        /// This gives an enumeration of models, which helps to perform easier conversion from
+        /// float part of an entry to decimal
+        /// </summary>
         public static IEnumerable<ConvertToDecimalModel> ConvertFloatModel(IEntry entry)
         {
             var hexTable = BitTable.HexadecimalTable;
@@ -93,6 +104,12 @@ namespace BitConverter.Services
                     Base = entry.Base
                 };
             }
+        }
+
+        public static string ConvertIntegralPartFromDecimal(IEntry entry)
+        {
+            var integralPart = entry.IntegerPart;
+            return null;
         }
     }
 }
