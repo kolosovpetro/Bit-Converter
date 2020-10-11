@@ -10,9 +10,6 @@ namespace BitConverter.Models
         public double Power { get; set; }
         public double Base { get; set; }
 
-        public override string ToString()
-        {
-            return $"Bit = {Bit}, BitValue = {BitValue}, Base = {Base}, Power = {Power}";
-        }
+        public override string ToString() => $"Bit = {Bit}, BitValue = {BitValue}, Base = {Base}, Power = {Power}";
     }
 }

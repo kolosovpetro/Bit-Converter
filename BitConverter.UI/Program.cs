@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Linq;
-using BitConverter.Auxiliaries;
 using BitConverter.Entities;
 using BitConverter.Services;
 
