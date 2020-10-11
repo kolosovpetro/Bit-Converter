@@ -47,6 +47,14 @@ namespace BitConverter.Tests.Tests
         }
 
         [Test]
+        public void Hexadecimal_Number_Test()
+        {
+            IEntry entry = new Entry(".10AF", 16);
+            entry.IntegerPart.Should().BeNull();
+            entry.FloatPart.Should().Be("10AF");
+        }
+
+        [Test]
         public void Exception_Test_1()
         {
             Action action = () => new Entry("asda.as", 10);

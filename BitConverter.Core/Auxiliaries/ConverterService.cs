@@ -19,7 +19,7 @@ namespace BitConverter.Auxiliaries
 
             Builder.Clear();
 
-            var model = ConvertToDecimalIntegerModels(entry);
+            var model = ConvertToDecimalIntegerPart(entry);
 
             double result = 0;
 
@@ -36,7 +36,7 @@ namespace BitConverter.Auxiliaries
         /*
          * It selects the enumerable of convert model in order to be converted to decimal integer
          */
-        public static IEnumerable<ConvertToDecimalIntegerModel> ConvertToDecimalIntegerModels(IEntry entry)
+        public static IEnumerable<ConvertToDecimalModel> ConvertToDecimalIntegerPart(IEntry entry)
         {
             var hexTable = BitTable.HexadecimalTable;
             var hexTableLength = hexTable.Length;
@@ -45,10 +45,28 @@ namespace BitConverter.Auxiliaries
 
             for (var i = 0; i < bits.Length; i++)
             {
-                yield return new ConvertToDecimalIntegerModel
+                yield return new ConvertToDecimalModel
                 {
                     Bit = entry.IntegerPart[i],
                     Power = inputLength - 1 - i,
+                    Base = entry.Base
+                };
+            }
+        }
+
+        public static IEnumerable<ConvertToDecimalModel> ConvertToDecimalFloatPart(IEntry entry)
+        {
+            var hexTable = BitTable.HexadecimalTable;
+            var hexTableLength = hexTable.Length;
+            var inputLength = entry.FloatPart.Length;
+            var bits = hexTable.Skip(hexTableLength - inputLength).ToArray();
+
+            for (var i = 0; i < bits.Length; i++)
+            {
+                yield return new ConvertToDecimalModel
+                {
+                    Bit = entry.FloatPart[i],
+                    Power = -1 - i,
                     Base = entry.Base
                 };
             }

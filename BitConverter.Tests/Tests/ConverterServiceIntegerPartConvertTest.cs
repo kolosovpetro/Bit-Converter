@@ -18,6 +18,8 @@ namespace BitConverter.Tests.Tests
             ConverterService.ConvertIntegerPartToDecimal(new Entry("145", 8)).Should().Be("101");
             ConverterService.ConvertIntegerPartToDecimal(new Entry("00012", 8)).Should().Be("10");
             ConverterService.ConvertIntegerPartToDecimal(new Entry("AF.", 16)).Should().Be("175");
+            ConverterService.ConvertIntegerPartToDecimal(new Entry("FD.", 16)).Should().Be("253");
+            ConverterService.ConvertIntegerPartToDecimal(new Entry("10AF.", 16)).Should().Be("4271");
         }
     }
 }

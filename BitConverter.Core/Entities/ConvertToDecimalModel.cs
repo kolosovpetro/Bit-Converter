@@ -3,7 +3,7 @@ using BitConverter.Auxiliaries;
 
 namespace BitConverter.Entities
 {
-    public class ConvertToDecimalIntegerModel
+    public class ConvertToDecimalModel
     {
         public char Bit { get; set; }
         public int BitValue => Array.IndexOf(BitTable.HexadecimalTable, Bit);

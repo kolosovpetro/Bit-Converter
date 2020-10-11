@@ -9,12 +9,17 @@ namespace BitConverter.UI
     {
         private static void Main()
         {
-            var entry = new Entry("10AF.", 16);
-            var model = ConverterService
-                .ConvertToDecimalIntegerModels(entry)
+            var entry = new Entry("101.123", 8);
+            var integerModel = ConverterService
+                .ConvertToDecimalIntegerPart(entry)
+                .ToList();
+            
+            var floatModel = ConverterService
+                .ConvertToDecimalFloatPart(entry)
                 .ToList();
 
-            model.ForEach(Console.WriteLine);
+            //integerModel.ForEach(Console.WriteLine);
+            floatModel.ForEach(Console.WriteLine);
             var convertInt = ConverterService.ConvertIntegerPartToDecimal(entry);
             Console.WriteLine(convertInt);
         }
