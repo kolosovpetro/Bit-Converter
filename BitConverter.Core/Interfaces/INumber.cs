@@ -1,6 +1,6 @@
 ﻿namespace BitConverter.Interfaces
 {
-    public interface IEntry
+    public interface INumber
     {
         int Base { get; set; }
         string IntegerPart { get; set; }

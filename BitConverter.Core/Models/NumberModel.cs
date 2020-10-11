@@ -4,9 +4,12 @@ using BitConverter.Exceptions;
 using BitConverter.Interfaces;
 using BitConverter.Validators;
 
-namespace BitConverter.Entities
+namespace BitConverter.Models
 {
-    public class Entry : IEntry
+    /// <summary>
+    /// This class represents number model with base, float part, integer part
+    /// </summary>
+    public class NumberModel : INumber
     {
         public int Base { get; set; }
         public string IntegerPart { get; set; }
@@ -15,11 +18,11 @@ namespace BitConverter.Entities
         private bool IsOctal => Base == 8;
         private bool IsHexadecimal => Base == 16;
 
-        public Entry()
+        public NumberModel()
         {
         }
 
-        public Entry(string input, int inputBase)
+        public NumberModel(string input, int inputBase)
         {
             if (!Validator.IsValidHexadecimal(input) && !Validator.IsValid(input))
                 throw new InvalidFormatException("Entered number has a wrong format.");

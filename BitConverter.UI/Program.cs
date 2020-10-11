@@ -1,6 +1,6 @@
 ﻿using System;
 using System.Linq;
-using BitConverter.Entities;
+using BitConverter.Models;
 using BitConverter.Services;
 
 namespace BitConverter.UI
@@ -9,7 +9,7 @@ namespace BitConverter.UI
     {
         private static void Main()
         {
-            var entry = new Entry("101.123", 8);
+            var entry = new NumberModel("101.123", 8);
             var integerModel = ConverterService
                 .ConvertIntegerModel(entry)
                 .ToList();

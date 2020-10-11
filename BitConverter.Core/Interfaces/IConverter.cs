@@ -5,6 +5,6 @@
         /// <summary>
         /// Returns converted entry
         /// </summary>
-        IEntry Convert();
+        INumber Convert();
     }
 }
