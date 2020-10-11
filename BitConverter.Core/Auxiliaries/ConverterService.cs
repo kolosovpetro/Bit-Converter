@@ -11,6 +11,7 @@ namespace BitConverter.Auxiliaries
     public static class ConverterService
     {
         private static readonly StringBuilder Builder = new StringBuilder();
+        private static readonly int Precision = 4;
 
         public static string ConvertIntegerPartToDecimal(IEntry entry)
         {
@@ -19,7 +20,7 @@ namespace BitConverter.Auxiliaries
 
             Builder.Clear();
 
-            var model = ConvertToDecimalIntegerPart(entry);
+            var model = ConvertIntegerModel(entry);
 
             double result = 0;
 
@@ -30,13 +31,34 @@ namespace BitConverter.Auxiliaries
                 result += bit * Math.Pow(m.Base, power);
             }
 
-            return result.ToString(CultureInfo.InvariantCulture);
+            return result.ToString(CultureInfo.CurrentCulture);
+        }
+        
+        public static string ConvertFloatPartToDecimal(IEntry entry)
+        {
+            if (entry.Base == 10)
+                return entry.IntegerPart;
+
+            Builder.Clear();
+
+            var model = ConvertFloatModel(entry);
+
+            double result = 0;
+
+            foreach (var m in model)
+            {
+                var power = m.Power;
+                var bit = m.BitValue;
+                result += bit * Math.Pow(m.Base, power);
+            }
+
+            return Math.Round(result, Precision).ToString(CultureInfo.CurrentCulture);
         }
 
         /*
          * It selects the enumerable of convert model in order to be converted to decimal integer
          */
-        public static IEnumerable<ConvertToDecimalModel> ConvertToDecimalIntegerPart(IEntry entry)
+        public static IEnumerable<ConvertToDecimalModel> ConvertIntegerModel(IEntry entry)
         {
             var hexTable = BitTable.HexadecimalTable;
             var hexTableLength = hexTable.Length;
@@ -54,7 +76,7 @@ namespace BitConverter.Auxiliaries
             }
         }
 
-        public static IEnumerable<ConvertToDecimalModel> ConvertToDecimalFloatPart(IEntry entry)
+        public static IEnumerable<ConvertToDecimalModel> ConvertFloatModel(IEntry entry)
         {
             var hexTable = BitTable.HexadecimalTable;
             var hexTableLength = hexTable.Length;
