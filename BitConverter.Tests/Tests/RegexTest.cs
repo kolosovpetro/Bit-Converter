@@ -17,6 +17,12 @@ namespace BitConverter.Tests.Tests
             Validator.IsValid("123,2").Should().BeTrue();
             Validator.IsValid(",023").Should().BeTrue();
             Validator.IsValid("0001").Should().BeTrue();
+            Validator.IsValidHexadecimal("AF.DF").Should().BeTrue();
+            Validator.IsValidHexadecimal("AF.").Should().BeTrue();
+            Validator.IsValidHexadecimal("10.FD").Should().BeTrue();
+            Validator.IsValidHexadecimal("0010.FD").Should().BeTrue();
+            Validator.IsValidHexadecimal(".FD").Should().BeTrue();
+            Validator.IsValidHexadecimal("AB.").Should().BeTrue();
         }
     }
 }

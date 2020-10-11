@@ -25,8 +25,8 @@ namespace BitConverter.Auxiliaries
 
             foreach (var m in model)
             {
-                var power = double.Parse(m.Power.ToString());
-                var bit = double.Parse(m.Bit.ToString());
+                var power = m.Power;
+                var bit = m.BitValue;
                 result += bit * Math.Pow(m.Base, power);
             }
 

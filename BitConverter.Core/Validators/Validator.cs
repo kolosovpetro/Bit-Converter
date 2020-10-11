@@ -8,10 +8,17 @@ namespace BitConverter.Validators
     public static class Validator
     {
         private static readonly Regex Regex = new Regex(@"[+-]?((\d+\.?\d*)|(\.\d+))");
+        private static readonly Regex RegexHexadecimal = new Regex(@"[+-]?[A-F0-9]*?\.[A-F0-9]*");
 
         public static bool IsValid(string input)
         {
             var match = Regex.Match(input);
+            return match.Success;
+        }
+        
+        public static bool IsValidHexadecimal(string input)
+        {
+            var match = RegexHexadecimal.Match(input);
             return match.Success;
         }
 

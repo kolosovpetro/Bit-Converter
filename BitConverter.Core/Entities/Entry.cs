@@ -21,7 +21,7 @@ namespace BitConverter.Entities
 
         public Entry(string input, int inputBase)
         {
-            if (!Validator.IsValid(input))
+            if (!Validator.IsValidHexadecimal(input) && !Validator.IsValid(input))
                 throw new InvalidFormatException("Entered number has a wrong format.");
 
             Base = inputBase;

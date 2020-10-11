@@ -9,7 +9,7 @@ namespace BitConverter.UI
     {
         private static void Main()
         {
-            var entry = new Entry("1010101", 2);
+            var entry = new Entry("10AF.", 16);
             var model = ConverterService
                 .ConvertToDecimalIntegerModels(entry)
                 .ToList();

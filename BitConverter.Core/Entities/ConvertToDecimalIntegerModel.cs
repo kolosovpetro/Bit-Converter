@@ -1,14 +1,18 @@
-﻿namespace BitConverter.Entities
+﻿using System;
+using BitConverter.Auxiliaries;
+
+namespace BitConverter.Entities
 {
     public class ConvertToDecimalIntegerModel
     {
         public char Bit { get; set; }
-        public int Power { get; set; }
-        public int Base { get; set; }
+        public int BitValue => Array.IndexOf(BitTable.HexadecimalTable, Bit);
+        public double Power { get; set; }
+        public double Base { get; set; }
 
         public override string ToString()
         {
-            return $"Bit = {Bit}, Base = {Base}, Power = {Power}";
+            return $"Bit = {Bit}, BitValue = {BitValue}, Base = {Base}, Power = {Power}";
         }
     }
 }
