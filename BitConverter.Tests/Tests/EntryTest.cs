@@ -47,11 +47,27 @@ namespace BitConverter.Tests.Tests
         }
 
         [Test]
-        public void Exception_Test()
+        public void Exception_Test_1()
         {
             Action action = () => new Entry("asda.as", 10);
             action.Should().Throw<InvalidFormatException>()
                 .WithMessage("Entered number has a wrong format.");
+        }
+
+        [Test]
+        public void Exception_Test_2()
+        {
+            Action action = () => new Entry("01010102", 2);
+            action.Should().Throw<InvalidFormatException>()
+                .WithMessage("Entered number has a wrong format.");
+        }
+
+        [Test]
+        public void Exception_Test_3()
+        {
+            Action action = () => new Entry("01010102", 3);
+            action.Should().Throw<UnsupportedBaseException>()
+                .WithMessage("Provided base is not supported.");
         }
     }
 }

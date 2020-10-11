@@ -45,6 +45,9 @@ namespace BitConverter.Entities
             {
                 IntegerPart = currentInput;
             }
+
+            if (!Validator.IsProperNumber(IntegerPart, inputBase) || !Validator.IsProperNumber(FloatPart, inputBase))
+                throw new InvalidFormatException("Entered number has a wrong format.");
         }
 
         public override string ToString()
