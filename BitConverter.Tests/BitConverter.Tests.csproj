@@ -17,4 +17,8 @@
       <ProjectReference Include="..\BitConverter.Core\BitConverter.Core.csproj" />
     </ItemGroup>
 
+    <ItemGroup>
+      <Folder Include="OctalNumberTests" />
+    </ItemGroup>
+
 </Project>

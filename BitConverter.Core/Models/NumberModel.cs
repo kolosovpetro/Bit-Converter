@@ -34,6 +34,7 @@ namespace BitConverter.Models
             if (currentInput.First() == Separator.Dot)
             {
                 FloatPart = new string(currentInput.Skip(1).ToArray());
+                IntegerPart = "0";
                 return;
             }
 
@@ -47,6 +48,7 @@ namespace BitConverter.Models
             else
             {
                 IntegerPart = currentInput;
+                IntegerPart = "0";
             }
 
             if (!Validator.IsProperNumber(IntegerPart, inputBase) || !Validator.IsProperNumber(FloatPart, inputBase))
