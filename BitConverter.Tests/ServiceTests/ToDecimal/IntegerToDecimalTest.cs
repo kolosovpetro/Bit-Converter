@@ -19,6 +19,7 @@ namespace BitConverter.Tests.ServiceTests.ToDecimal
             IntegerPartToDecimal.Convert(new HexadecimalNumber("AF.")).Should().Be("175");
             IntegerPartToDecimal.Convert(new HexadecimalNumber("FD.")).Should().Be("253");
             IntegerPartToDecimal.Convert(new HexadecimalNumber("10AF.")).Should().Be("4271");
+            IntegerPartToDecimal.Convert(new HexadecimalNumber("10AF")).Should().Be("4271");
         }
     }
 }

@@ -20,7 +20,7 @@ namespace BitConverter.Services.ToDecimal
         public static string Convert(INumber entry)
         {
             if (entry.Base == 10)
-                return Math.Round(double.Parse("0," + entry.FloatPart), Precision).ToString(CultureInfo.CurrentCulture);
+                return Math.Round(double.Parse("0," + entry.FloatPart), Precision).ToString(CultureInfo.InvariantCulture);
 
             Builder.Clear();
 
@@ -35,7 +35,7 @@ namespace BitConverter.Services.ToDecimal
                 result += bit * Math.Pow(m.Base, power);
             }
 
-            return Math.Round(result, Precision).ToString(CultureInfo.CurrentCulture);
+            return Math.Round(result, Precision).ToString(CultureInfo.InvariantCulture);
         }
         
         /// <summary>
