@@ -1,4 +1,5 @@
-﻿using System.Linq;
+﻿using System;
+using System.Linq;
 using BitConverter.Auxiliaries;
 using BitConverter.Exceptions;
 using BitConverter.Interfaces;
@@ -20,6 +21,12 @@ namespace BitConverter.Models
 
         public NumberModel(string input, int inputBase)
         {
+            if (input == null)
+                throw new NullNumberException("Input data cannot be null.");
+
+            if (input == string.Empty)
+                throw new InvalidNumberFormatException("Input data cannot be empty.");
+
             if (!Validator.IsValidHexadecimal(input) && !Validator.IsValid(input))
                 throw new InvalidNumberFormatException("Entered number has a wrong format.");
 
@@ -45,7 +52,7 @@ namespace BitConverter.Models
             else
             {
                 IntegerPart = currentInput;
-                IntegerPart = "0";
+                FloatPart = "0";
             }
 
             if (!Validator.IsProperNumber(IntegerPart, inputBase) || !Validator.IsProperNumber(FloatPart, inputBase))

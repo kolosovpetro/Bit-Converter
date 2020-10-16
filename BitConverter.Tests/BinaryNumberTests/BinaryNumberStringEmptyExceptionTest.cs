@@ -12,9 +12,9 @@ namespace BitConverter.Tests.BinaryNumberTests
         [Test]
         public void Binary_Number_String_Empty_Exception_Test()
         {
-            Action act = () => new NumberModel(null, 2);
+            Action act = () => new NumberModel("", 2);
             act.Should().Throw<InvalidNumberFormatException>()
-                .WithMessage("Input data cannot be null.");
+                .WithMessage("Input data cannot be empty.");
         }
     }
 }
