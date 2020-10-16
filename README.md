@@ -20,5 +20,6 @@ It accepts foramts:
   - Hexadecimal number tests for all formats
 
 - Document functions with input format
+- Create abstraction layers over Binary, Octal, Decimal, Hexadecimal numbers. Each partial case NumberModel(data, base).
 
 

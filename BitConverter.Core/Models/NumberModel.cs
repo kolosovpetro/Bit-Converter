@@ -1,5 +1,4 @@
-﻿using System;
-using System.Linq;
+﻿using System.Linq;
 using BitConverter.Auxiliaries;
 using BitConverter.Exceptions;
 using BitConverter.Interfaces;
