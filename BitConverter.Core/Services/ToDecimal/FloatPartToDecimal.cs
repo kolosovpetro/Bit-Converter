@@ -17,7 +17,7 @@ namespace BitConverter.Services.ToDecimal
         /// <summary>
         /// This converts only FLOAT part of an entry
         /// </summary>
-        public static string ConvertFloatPartToDecimal(INumber entry)
+        public static string Convert(INumber entry)
         {
             if (entry.Base == 10)
                 return Math.Round(double.Parse("0," + entry.FloatPart), Precision).ToString(CultureInfo.CurrentCulture);

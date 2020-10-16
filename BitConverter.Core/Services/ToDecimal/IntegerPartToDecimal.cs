@@ -16,7 +16,7 @@ namespace BitConverter.Services.ToDecimal
         /// <summary>
         /// This converts only INTEGER part of Entry
         /// </summary>
-        public static string ConvertIntegerPartToDecimal(INumber entry)
+        public static string Convert(INumber entry)
         {
             if (entry.Base == 10)
                 return entry.IntegerPart;

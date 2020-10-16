@@ -15,9 +15,6 @@ namespace BitConverter.Models
         public string IntegerPart { get; set; }
         public string FloatPart { get; set; }
 
-        private bool IsOctal => Base == 8;
-        private bool IsHexadecimal => Base == 16;
-
         public NumberModel(string input, int inputBase)
         {
             if (input == null)
@@ -56,17 +53,6 @@ namespace BitConverter.Models
 
             if (!Validator.IsProperNumber(IntegerPart, inputBase) || !Validator.IsProperNumber(FloatPart, inputBase))
                 throw new InvalidNumberFormatException("Entered number has a wrong format.");
-        }
-
-        public override string ToString()
-        {
-            if (IsOctal)
-                return Prefix.Octal + IntegerPart + Separator.Dot + FloatPart;
-
-            if (IsHexadecimal)
-                return Prefix.Hexadecimal + IntegerPart + Separator.Dot + FloatPart;
-
-            return IntegerPart + Separator.Dot + FloatPart;
         }
     }
 }
