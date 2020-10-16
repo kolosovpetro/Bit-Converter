@@ -58,7 +58,7 @@ namespace BitConverter.Tests.Tests
         public void Exception_Test_1()
         {
             Action action = () => new NumberModel("asda.as", 10);
-            action.Should().Throw<InvalidFormatException>()
+            action.Should().Throw<InvalidNumberFormatException>()
                 .WithMessage("Entered number has a wrong format.");
         }
 
@@ -66,7 +66,7 @@ namespace BitConverter.Tests.Tests
         public void Exception_Test_2()
         {
             Action action = () => new NumberModel("01010102", 2);
-            action.Should().Throw<InvalidFormatException>()
+            action.Should().Throw<InvalidNumberFormatException>()
                 .WithMessage("Entered number has a wrong format.");
         }
 
