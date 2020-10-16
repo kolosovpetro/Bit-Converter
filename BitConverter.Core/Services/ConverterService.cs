@@ -66,7 +66,7 @@ namespace BitConverter.Services
         /// This gives an enumeration of models, which helps to perform easier conversion from
         /// integer part of an entry to decimal
         /// </summary>
-        public static IEnumerable<ConvertToDecimalModel> ConvertIntegerModel(INumber entry)
+        public static IEnumerable<PolynomialModel> ConvertIntegerModel(INumber entry)
         {
             var hexTable = BitTable.HexadecimalTable;
             var hexTableLength = hexTable.Length;
@@ -75,7 +75,7 @@ namespace BitConverter.Services
 
             for (var i = 0; i < bits.Length; i++)
             {
-                yield return new ConvertToDecimalModel
+                yield return new PolynomialModel
                 {
                     Bit = entry.IntegerPart[i],
                     Power = inputLength - 1 - i,
@@ -88,7 +88,7 @@ namespace BitConverter.Services
         /// This gives an enumeration of models, which helps to perform easier conversion from
         /// float part of an entry to decimal
         /// </summary>
-        public static IEnumerable<ConvertToDecimalModel> ConvertFloatModel(INumber entry)
+        public static IEnumerable<PolynomialModel> ConvertFloatModel(INumber entry)
         {
             var hexTable = BitTable.HexadecimalTable;
             var hexTableLength = hexTable.Length;
@@ -97,7 +97,7 @@ namespace BitConverter.Services
 
             for (var i = 0; i < bits.Length; i++)
             {
-                yield return new ConvertToDecimalModel
+                yield return new PolynomialModel
                 {
                     Bit = entry.FloatPart[i],
                     Power = -1 - i,
@@ -148,7 +148,7 @@ namespace BitConverter.Services
             for (var i = 0; i < Precision; i++)
             {
                 currentFloat *= newBase;
-                int item = (int) currentFloat;
+                var item = (int) currentFloat;
                 queue.Enqueue(item.ToString());
             }
 

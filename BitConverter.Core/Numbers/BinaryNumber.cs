@@ -1,4 +1,5 @@
-﻿using BitConverter.Interfaces;
+﻿using BitConverter.Auxiliaries;
+using BitConverter.Interfaces;
 using BitConverter.Models;
 
 namespace BitConverter.Numbers
@@ -15,6 +16,11 @@ namespace BitConverter.Numbers
             Base = number.Base;
             IntegerPart = number.IntegerPart;
             FloatPart = number.FloatPart;
+        }
+
+        public override string ToString()
+        {
+            return IntegerPart + Separator.Dot + FloatPart;
         }
     }
 }
