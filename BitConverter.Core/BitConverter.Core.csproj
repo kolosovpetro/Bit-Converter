@@ -5,8 +5,4 @@
         <RootNamespace>BitConverter</RootNamespace>
     </PropertyGroup>
 
-    <ItemGroup>
-      <Folder Include="Services\FromDecimal" />
-    </ItemGroup>
-
 </Project>
