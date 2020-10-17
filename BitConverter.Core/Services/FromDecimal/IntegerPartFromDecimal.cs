@@ -18,7 +18,7 @@ namespace BitConverter.Services.FromDecimal
             if (newBase == 10)
                 return entry.IntegerPart;
 
-            var integralPart = int.Parse(entry.IntegerPart);
+            var integralPart = long.Parse(entry.IntegerPart);
             var stack = new Stack<string>();
 
 
