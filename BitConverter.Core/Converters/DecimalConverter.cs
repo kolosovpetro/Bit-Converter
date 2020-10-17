@@ -1,5 +1,4 @@
-﻿using System;
-using BitConverter.Auxiliaries;
+﻿using BitConverter.Auxiliaries;
 using BitConverter.Interfaces;
 using BitConverter.Numbers;
 using BitConverter.Services.ToDecimal;

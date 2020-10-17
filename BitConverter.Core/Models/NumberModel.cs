@@ -11,9 +11,9 @@ namespace BitConverter.Models
     /// </summary>
     public class NumberModel : INumber
     {
-        public int Base { get; set; }
-        public string IntegerPart { get; set; }
-        public string FloatPart { get; set; }
+        public int Base { get; }
+        public string IntegerPart { get; }
+        public string FloatPart { get; }
 
         public NumberModel(string input, int inputBase)
         {

@@ -2,8 +2,8 @@
 {
     public interface INumber
     {
-        int Base { get; set; }
-        string IntegerPart { get; set; }
-        string FloatPart { get; set; }
+        int Base { get; }
+        string IntegerPart { get; }
+        string FloatPart { get; }
     }
 }
