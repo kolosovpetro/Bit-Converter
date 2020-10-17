@@ -6,7 +6,7 @@ using BitConverter.Interfaces;
 
 namespace BitConverter.Services.FromDecimal
 {
-    public static class IntegerFromDecimal
+    public static class IntegerPartFromDecimal
     {
         private static readonly StringBuilder Builder = new StringBuilder();
 

@@ -12,7 +12,7 @@ namespace BitConverter.Tests.HexadecimalNumberTests
         [Test]
         public void Hexadecimal_Float_Comma_Separated_Test()
         {
-            INumber number = new NumberModel("AD,FD", 16);
+            INumber number = new NumberModel("AD,FD", 16);    // fails for comma separator
             number.IntegerPart.Should().Be("AD");
             number.FloatPart.Should().Be("FD");
             number.Base.Should().Be(16);

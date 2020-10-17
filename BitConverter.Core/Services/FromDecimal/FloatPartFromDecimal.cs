@@ -8,7 +8,7 @@ using BitConverter.Interfaces;
 
 namespace BitConverter.Services.FromDecimal
 {
-    public static class FloatFromDecimal
+    public static class FloatPartFromDecimal
     {
         private static readonly StringBuilder Builder = new StringBuilder();
         private const int Precision = 6;
