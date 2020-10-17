@@ -13,7 +13,7 @@ Number is represented as string: integer part, string: float part, int: base, se
 
 - Binary
   - 101
-  - 101.
+  - "101."
   - 101.101
   - 101,101
   - 101,
@@ -22,7 +22,7 @@ Number is represented as string: integer part, string: float part, int: base, se
 
 - Octal
   - 567
-  - 567.
+  - "567."
   - 567.765
   - 567,
   - 567,765
@@ -31,7 +31,7 @@ Number is represented as string: integer part, string: float part, int: base, se
 
 - Decimal
   - 567
-  - 567.
+  - "567."
   - 567.765
   - 567,
   - 567,765
