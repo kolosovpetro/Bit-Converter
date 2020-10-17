@@ -20,7 +20,7 @@ namespace BitConverter.Services.ToDecimal
         public static string Convert(INumber entry)
         {
             if (entry.Base == 10)
-                return Math.Round(double.Parse("0," + entry.FloatPart), Precision).ToString(CultureInfo.InvariantCulture);
+                return entry.FloatPart;
 
             Builder.Clear();
 
@@ -35,14 +35,17 @@ namespace BitConverter.Services.ToDecimal
                 result += bit * Math.Pow(m.Base, power);
             }
 
-            return Math.Round(result, Precision).ToString(CultureInfo.InvariantCulture);
+            return new string(Math.Round(result, Precision)
+                .ToString(CultureInfo.InvariantCulture)
+                .Skip(2)
+                .ToArray());
         }
         
         /// <summary>
         /// This gives an enumeration of models, which helps to perform easier conversion from
         /// float part of an entry to decimal
         /// </summary>
-        public static IEnumerable<PolynomialModel> ConvertFloatModel(INumber entry)
+        private static IEnumerable<PolynomialModel> ConvertFloatModel(INumber entry)
         {
             var hexTable = BitTable.HexadecimalTable;
             var hexTableLength = hexTable.Length;
