@@ -12,7 +12,7 @@ namespace BitConverter.Services.ToDecimal
     public static class FloatPartToDecimal
     {
         private static readonly StringBuilder Builder = new StringBuilder();
-        private const int Precision = 4;
+        private const int Precision = 6;
         
         /// <summary>
         /// This converts only FLOAT part of an entry

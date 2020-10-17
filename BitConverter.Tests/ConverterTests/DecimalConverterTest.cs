@@ -22,23 +22,23 @@ namespace BitConverter.Tests.ConverterTests
             binaryConverter = new DecimalConverter(new OctalNumber("123.456"));
             converted = binaryConverter.Convert();
             converted.IntegerPart.Should().Be("83");
-            converted.FloatPart.Should().Be("589843");
+            converted.FloatPart.Should().Be("589844");
             converted.Base.Should().Be(10);
-            converted.ToString().Should().Be("83.589843");
+            converted.ToString().Should().Be("83.589844");
             
             binaryConverter = new DecimalConverter(new HexadecimalNumber("123.456"));
             converted = binaryConverter.Convert();
             converted.IntegerPart.Should().Be("291");
             converted.FloatPart.Should().Be("270996");
-            converted.Base.Should().Be(2);
+            converted.Base.Should().Be(10);
             converted.ToString().Should().Be("291.270996");
             
             binaryConverter = new DecimalConverter(new BinaryNumber("101.111"));
             converted = binaryConverter.Convert();
             converted.IntegerPart.Should().Be("5");
-            converted.FloatPart.Should().Be("875000");
-            converted.Base.Should().Be(2);
-            converted.ToString().Should().Be("5.875000");
+            converted.FloatPart.Should().Be("875");
+            converted.Base.Should().Be(10);
+            converted.ToString().Should().Be("5.875");
         }
     }
 }

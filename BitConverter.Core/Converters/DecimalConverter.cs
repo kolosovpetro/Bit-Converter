@@ -1,4 +1,8 @@
-﻿using BitConverter.Interfaces;
+﻿using System;
+using BitConverter.Auxiliaries;
+using BitConverter.Interfaces;
+using BitConverter.Numbers;
+using BitConverter.Services.ToDecimal;
 
 namespace BitConverter.Converters
 {
@@ -8,6 +12,7 @@ namespace BitConverter.Converters
     public class DecimalConverter: IConverter
     {
         private readonly INumber _number;
+        private const int Base = 10;
 
         public DecimalConverter(INumber number)
         {
@@ -16,7 +21,13 @@ namespace BitConverter.Converters
 
         public INumber Convert()
         {
-            throw new System.NotImplementedException();
+            if (_number.Base == Base)
+                return _number;
+
+            var integerPart = IntegerPartToDecimal.Convert(_number);
+            var floatPart = FloatPartToDecimal.Convert(_number);
+            var numberData = integerPart + Separator.Dot + floatPart;
+            return new DecimalNumber(numberData);
         }
     }
 }
