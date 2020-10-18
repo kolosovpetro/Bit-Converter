@@ -12,7 +12,7 @@ namespace BitConverter.Numbers
 
         public BinaryNumber(string input)
         {
-            INumber number = new NumberModel(input, 2);
+            var number = new NumberModel(input, NumberBase.Binary);
             Base = number.Base;
             IntegerPart = number.IntegerPart;
             FloatPart = number.FloatPart;

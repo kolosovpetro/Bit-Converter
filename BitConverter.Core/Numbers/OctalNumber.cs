@@ -12,7 +12,7 @@ namespace BitConverter.Numbers
 
         public OctalNumber(string input)
         {
-            INumber number = new NumberModel(input, 8);
+            var number = new NumberModel(input, NumberBase.Octal);
             Base = number.Base;
             IntegerPart = number.IntegerPart;
             FloatPart = number.FloatPart;

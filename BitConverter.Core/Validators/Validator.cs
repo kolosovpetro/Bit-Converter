@@ -45,19 +45,14 @@ namespace BitConverter.Validators
         // this is to verify proper format on entry
         public static bool IsProperNumber(string input, int inputBase)
         {
-            switch (inputBase)
+            return inputBase switch
             {
-                case 2:
-                    return IsProperBinary(input);
-                case 8:
-                    return IsProperOctal(input);
-                case 10:
-                    return IsProperDecimal(input);
-                case 16:
-                    return IsProperHexadecimal(input);
-                default:
-                    throw new UnsupportedBaseException("Provided base is not supported.");
-            }
+                2 => IsProperBinary(input),
+                8 => IsProperOctal(input),
+                10 => IsProperDecimal(input),
+                16 => IsProperHexadecimal(input),
+                _ => throw new UnsupportedBaseException("Provided base is not supported.")
+            };
         }
     }
 }

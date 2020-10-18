@@ -1,4 +1,5 @@
-﻿using BitConverter.Interfaces;
+﻿using BitConverter.Auxiliaries;
+using BitConverter.Interfaces;
 using BitConverter.Numbers;
 using BitConverter.Services;
 
@@ -10,7 +11,7 @@ namespace BitConverter.Converters
     public class OctalConverter : IConverter
     {
         private readonly INumber _number;
-        private const int Base = 8;
+        private const int Base = NumberBase.Octal;
 
         public OctalConverter(INumber number)
         {

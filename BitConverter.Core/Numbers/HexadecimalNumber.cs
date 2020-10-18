@@ -12,7 +12,7 @@ namespace BitConverter.Numbers
 
         public HexadecimalNumber(string input)
         {
-            INumber number = new NumberModel(input, 16);
+            var number = new NumberModel(input, NumberBase.Hexadecimal);
             Base = number.Base;
             IntegerPart = number.IntegerPart;
             FloatPart = number.FloatPart;

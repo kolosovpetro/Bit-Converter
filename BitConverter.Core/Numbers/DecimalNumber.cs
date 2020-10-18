@@ -12,7 +12,7 @@ namespace BitConverter.Numbers
 
         public DecimalNumber(string input)
         {
-            INumber number = new NumberModel(input, 10);
+            var number = new NumberModel(input, NumberBase.Decimal);
             Base = number.Base;
             IntegerPart = number.IntegerPart;
             FloatPart = number.FloatPart;

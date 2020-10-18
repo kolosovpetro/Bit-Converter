@@ -8,40 +8,6 @@ After that decimal D1 is being converted to designed base by division
 ## How number abstaction organized?
 
 Number is represented as string: integer part, string: float part, int: base, separated by comma or dot.
-
-## Supproted formats
-
-- Binary
-  - 101
-  - "101."
-  - 101.101
-  - 101,101
-  - 101,
-  - .101
-  - ,101
-
-- Octal
-  - 567
-  - "567."
-  - 567.765
-  - 567,
-  - 567,765
-  - .567
-  - ,567
-
-- Decimal
-  - 567
-  - "567."
-  - 567.765
-  - 567,
-  - 567,765
-  - .567
-  - ,567
-  
-- Hexadecimal (Separator dot always must follow explicitly)
-  - AF.
-  - AF.15
-  - .AF
     
 
 

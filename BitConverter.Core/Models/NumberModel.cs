@@ -17,14 +17,7 @@ namespace BitConverter.Models
 
         public NumberModel(string input, int inputBase)
         {
-            if (input == null)
-                throw new NullNumberException("Input data cannot be null.");
-
-            if (input == string.Empty)
-                throw new InvalidNumberFormatException("Input data cannot be empty.");
-
-            if (!Validator.IsValidHexadecimal(input) && !Validator.IsValid(input))
-                throw new InvalidNumberFormatException("Entered number has a wrong format.");
+            VerifyInput(input);
 
             Base = inputBase;
 
@@ -42,16 +35,26 @@ namespace BitConverter.Models
             if (split.Length == 2)
             {
                 IntegerPart = split[0];
-                var floatPart = split[1] == "" ? "0" : split[1];
-                FloatPart = floatPart;
-            }
-            else
-            {
-                IntegerPart = currentInput;
-                FloatPart = "0";
+                FloatPart = split[1] == string.Empty ? "0" : split[1];
+                return;
             }
 
+            IntegerPart = currentInput;
+            FloatPart = "0";
+
             if (!Validator.IsProperNumber(IntegerPart, inputBase) || !Validator.IsProperNumber(FloatPart, inputBase))
+                throw new InvalidNumberFormatException("Entered number has a wrong format.");
+        }
+
+        private static void VerifyInput(string input)
+        {
+            if (input == null)
+                throw new NullNumberException("Input data cannot be null.");
+
+            if (input == string.Empty)
+                throw new InvalidNumberFormatException("Input data cannot be empty.");
+
+            if (!Validator.IsValidHexadecimal(input) && !Validator.IsValid(input))
                 throw new InvalidNumberFormatException("Entered number has a wrong format.");
         }
     }
