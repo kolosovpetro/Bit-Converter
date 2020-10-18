@@ -1,12 +1,8 @@
 ﻿using System;
-using BitConverter.Auxiliaries;
 using BitConverter.Validator.Auxiliaries;
 
 namespace BitConverter.Models
 {
-    /// <summary>
-    /// This model helps to covert some entry to decimal in easier way
-    /// </summary>
     public class PolynomialModel
     {
         public char Bit { get; set; }

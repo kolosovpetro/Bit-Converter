@@ -1,13 +1,8 @@
 ﻿using BitConverter.Interfaces;
-using BitConverter.Numbers;
-using BitConverter.Services.ToDecimal;
-using BitConverter.Validator.Auxiliaries;
+using BitConverter.Services;
 
 namespace BitConverter.Converters
 {
-    /// <summary>
-    /// Converts provided entry to decimal format
-    /// </summary>
     public class DecimalConverter: IConverter
     {
         private readonly INumber _number;
@@ -23,10 +18,7 @@ namespace BitConverter.Converters
             if (_number.Base == Base)
                 return _number;
 
-            var integerPart = IntegerPartToDecimal.Convert(_number);
-            var floatPart = FloatPartToDecimal.Convert(_number);
-            var numberData = integerPart + Separator.Dot + floatPart;
-            return new DecimalNumber(numberData);
+            return ConverterService.ConvertToDecimal(_number);
         }
     }
 }

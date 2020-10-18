@@ -1,7 +1,9 @@
 ﻿using BitConverter.Converters;
 using BitConverter.Interfaces;
 using BitConverter.Models;
+using BitConverter.Numbers;
 using BitConverter.Services.FromDecimal;
+using BitConverter.Services.ToDecimal;
 using BitConverter.Validator.Auxiliaries;
 
 namespace BitConverter.Services
@@ -20,10 +22,12 @@ namespace BitConverter.Services
             return integerPartFromDecimal + Separator.Dot + floatPartFromDecimal;
         }
 
-        private static INumber ConvertToDecimal(INumber number)
+        public static INumber ConvertToDecimal(INumber number)
         {
-            var decimalConverter = new DecimalConverter(number);
-            return decimalConverter.Convert();
+            var integerPart = IntegerPartToDecimal.Convert(number);
+            var floatPart = FloatPartToDecimal.Convert(number);
+            var numberData = integerPart + Separator.Dot + floatPart;
+            return new DecimalNumber(numberData);
         }
 
         private static INumber ConvertFromDecimal(INumber number, int newBase)

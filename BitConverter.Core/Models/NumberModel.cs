@@ -5,13 +5,10 @@ using BitConverter.Validator.Interfaces;
 
 namespace BitConverter.Models
 {
-    /// <summary>
-    /// This class represents number model with base, float part, integer part
-    /// </summary>
     public class NumberModel : INumber
     {
         private readonly IValidator _validator = new Validator.Implementations.Validator();
-        
+
         public int Base { get; }
         public string IntegerPart { get; }
         public string FloatPart { get; }
@@ -25,6 +22,11 @@ namespace BitConverter.Models
             IntegerPart = split[0];
             FloatPart = split[1];
             Base = inputBase;
+        }
+
+        public override string ToString()
+        {
+            return IntegerPart + Separator.Dot + FloatPart;
         }
     }
 }

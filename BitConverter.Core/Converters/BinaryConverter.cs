@@ -1,13 +1,9 @@
 ﻿using BitConverter.Interfaces;
 using BitConverter.Numbers;
 using BitConverter.Services;
-using BitConverter.Validator.Auxiliaries;
 
 namespace BitConverter.Converters
 {
-    /// <summary>
-    /// Converts provided number to the octal format
-    /// </summary>
     public class BinaryConverter : IConverter
     {
         private readonly INumber _number;
@@ -22,9 +18,9 @@ namespace BitConverter.Converters
         {
             if (_number.Base == Base)
                 return _number;
-            
-            var convertData = ConverterService.ConvertData(_number, Base);
-            return new BinaryNumber(convertData);
+
+            var number = ConverterService.ConvertToBase(_number, 2);
+            return new BinaryNumber(number.ToString());
         }
     }
 }

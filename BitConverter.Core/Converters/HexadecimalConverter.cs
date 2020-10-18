@@ -1,13 +1,9 @@
 ﻿using BitConverter.Interfaces;
 using BitConverter.Numbers;
 using BitConverter.Services;
-using BitConverter.Validator.Auxiliaries;
 
 namespace BitConverter.Converters
 {
-    /// <summary>
-    /// Converts provided entry to hexadecimal format
-    /// </summary>
     public class HexadecimalConverter: IConverter
     {
         private readonly INumber _number;
