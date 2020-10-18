@@ -7,14 +7,13 @@ namespace BitConverter.Numbers
 {
     public class OctalNumber : INumber
     {
-        public int Base { get; }
+        public int Base { get; } = 8;
         public string IntegerPart { get; }
         public string FloatPart { get; }
 
         public OctalNumber(string input)
         {
-            var number = new NumberModel(input, NumberBase.Octal);
-            Base = number.Base;
+            var number = new NumberModel(input, Base);
             IntegerPart = number.IntegerPart;
             FloatPart = number.FloatPart;
         }

@@ -11,7 +11,7 @@ namespace BitConverter.Converters
     public class BinaryConverter : IConverter
     {
         private readonly INumber _number;
-        private const int Base = NumberBase.Binary;
+        private const int Base = 2;
 
         public BinaryConverter(INumber number)
         {

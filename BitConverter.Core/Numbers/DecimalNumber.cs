@@ -6,14 +6,13 @@ namespace BitConverter.Numbers
 {
     public class DecimalNumber : INumber
     {
-        public int Base { get; }
+        public int Base { get; } = 10;
         public string IntegerPart { get; }
         public string FloatPart { get; }
 
         public DecimalNumber(string input)
         {
-            var number = new NumberModel(input, NumberBase.Decimal);
-            Base = number.Base;
+            var number = new NumberModel(input, Base);
             IntegerPart = number.IntegerPart;
             FloatPart = number.FloatPart;
         }

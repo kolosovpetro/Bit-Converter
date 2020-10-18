@@ -11,7 +11,7 @@ namespace BitConverter.Converters
     public class DecimalConverter: IConverter
     {
         private readonly INumber _number;
-        private const int Base = NumberBase.Decimal;
+        private const int Base = 10;
 
         public DecimalConverter(INumber number)
         {

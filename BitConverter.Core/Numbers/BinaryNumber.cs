@@ -6,14 +6,13 @@ namespace BitConverter.Numbers
 {
     public class BinaryNumber : INumber
     {
-        public int Base { get; }
+        public int Base { get; } = 2;
         public string IntegerPart { get; }
         public string FloatPart { get; }
 
         public BinaryNumber(string input)
         {
-            var number = new NumberModel(input, NumberBase.Binary);
-            Base = number.Base;
+            var number = new NumberModel(input, Base);
             IntegerPart = number.IntegerPart;
             FloatPart = number.FloatPart;
         }

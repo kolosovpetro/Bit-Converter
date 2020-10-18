@@ -11,7 +11,7 @@ namespace BitConverter.Converters
     public class OctalConverter : IConverter
     {
         private readonly INumber _number;
-        private const int Base = NumberBase.Octal;
+        private const int Base = 8;
 
         public OctalConverter(INumber number)
         {

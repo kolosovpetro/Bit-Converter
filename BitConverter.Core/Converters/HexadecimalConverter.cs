@@ -11,7 +11,7 @@ namespace BitConverter.Converters
     public class HexadecimalConverter: IConverter
     {
         private readonly INumber _number;
-        private const int Base = NumberBase.Hexadecimal;
+        private const int Base = 16;
 
         public HexadecimalConverter(INumber number)
         {

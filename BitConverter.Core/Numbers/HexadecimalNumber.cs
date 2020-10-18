@@ -7,14 +7,13 @@ namespace BitConverter.Numbers
 {
     public class HexadecimalNumber : INumber
     {
-        public int Base { get; }
+        public int Base { get; } = 16;
         public string IntegerPart { get; }
         public string FloatPart { get; }
 
         public HexadecimalNumber(string input)
         {
-            var number = new NumberModel(input, NumberBase.Hexadecimal);
-            Base = number.Base;
+            var number = new NumberModel(input, Base);
             IntegerPart = number.IntegerPart;
             FloatPart = number.FloatPart;
         }
