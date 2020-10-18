@@ -4,7 +4,7 @@ using BitConverter.Services;
 
 namespace BitConverter.Converters
 {
-    public class HexadecimalConverter: IConverter
+    public class HexadecimalConverter : IConverter
     {
         private readonly INumber _number;
         private const int Base = 16;
@@ -19,8 +19,8 @@ namespace BitConverter.Converters
             if (_number.Base == Base)
                 return _number;
 
-            var numberData = ConverterService.ConvertData(_number, Base);
-            return new HexadecimalNumber(numberData);
+            var number = ConverterService.ConvertToBase(_number, 16);
+            return new HexadecimalNumber(number.ToString());
         }
     }
 }

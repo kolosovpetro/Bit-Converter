@@ -19,8 +19,8 @@ namespace BitConverter.Converters
             if (_number.Base == Base)
                 return _number;
 
-            var numberData = ConverterService.ConvertData(_number, Base);
-            return new OctalNumber(numberData);
+            var number = ConverterService.ConvertToBase(_number, 8);
+            return new OctalNumber(number.ToString());
         }
     }
 }
