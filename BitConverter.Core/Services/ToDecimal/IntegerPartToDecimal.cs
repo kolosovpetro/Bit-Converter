@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using System.Globalization;
 using System.Linq;
 using System.Text;
-using BitConverter.Auxiliaries;
 using BitConverter.Interfaces;
 using BitConverter.Models;
+using BitConverter.Validator.Auxiliaries;
 
 namespace BitConverter.Services.ToDecimal
 {
@@ -41,7 +41,7 @@ namespace BitConverter.Services.ToDecimal
         /// This gives an enumeration of models, which helps to perform easier conversion from
         /// integer part of an entry to decimal
         /// </summary>
-        public static IEnumerable<PolynomialModel> IntegerPartPolynomial(INumber entry)
+        private static IEnumerable<PolynomialModel> IntegerPartPolynomial(INumber entry)
         {
             var hexTable = BitTable.HexadecimalTable;
             var hexTableLength = hexTable.Length;

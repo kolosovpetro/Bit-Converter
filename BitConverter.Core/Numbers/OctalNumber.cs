@@ -2,7 +2,6 @@
 using BitConverter.Interfaces;
 using BitConverter.Models;
 using BitConverter.Validator.Auxiliaries;
-using NumberBase = BitConverter.Auxiliaries.NumberBase;
 
 namespace BitConverter.Numbers
 {

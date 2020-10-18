@@ -1,7 +1,7 @@
-﻿using BitConverter.Auxiliaries;
-using BitConverter.Interfaces;
+﻿using BitConverter.Interfaces;
 using BitConverter.Numbers;
 using BitConverter.Services;
+using BitConverter.Validator.Auxiliaries;
 
 namespace BitConverter.Converters
 {

@@ -1,5 +1,6 @@
 ﻿using System;
 using BitConverter.Auxiliaries;
+using BitConverter.Validator.Auxiliaries;
 
 namespace BitConverter.Models
 {

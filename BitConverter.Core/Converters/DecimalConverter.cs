@@ -2,7 +2,6 @@
 using BitConverter.Numbers;
 using BitConverter.Services.ToDecimal;
 using BitConverter.Validator.Auxiliaries;
-using NumberBase = BitConverter.Auxiliaries.NumberBase;
 
 namespace BitConverter.Converters
 {
