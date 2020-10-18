@@ -11,14 +11,26 @@ namespace BitConverter.Validator.Tests.Tests
         public void Binary_Validator_Test()
         {
             IValidator validator = new Implementations.Validator();
-            validator.IsValidBinary(".").Should().BeFalse();
-            validator.IsValidBinary("12.12").Should().BeFalse();
-            validator.IsValidBinary(".101").Should().BeTrue();
-            validator.IsValidBinary("111.101").Should().BeTrue();
-            validator.IsValidBinary("111.").Should().BeTrue();
-            validator.IsValidBinary("111,").Should().BeFalse();
+            
+            // valid inputs:
+            validator.IsValidBinary("111.111").Should().BeTrue();
+            validator.IsValidBinary("111.0").Should().BeTrue();
+            
+            // invalid inputs
+            validator.IsValidBinary("111.111.111").Should().BeFalse();
+            validator.IsValidBinary(".111").Should().BeFalse();
+            validator.IsValidBinary("111.").Should().BeFalse();
+            validator.IsValidBinary("111").Should().BeFalse();
+            validator.IsValidBinary(",111").Should().BeFalse();
             validator.IsValidBinary("111,111").Should().BeFalse();
             validator.IsValidBinary("111,").Should().BeFalse();
+            validator.IsValidBinary("112.112.112").Should().BeFalse();
+            validator.IsValidBinary(".112").Should().BeFalse();
+            validator.IsValidBinary("112.").Should().BeFalse();
+            validator.IsValidBinary("112").Should().BeFalse();
+            validator.IsValidBinary(",112").Should().BeFalse();
+            validator.IsValidBinary("121,121").Should().BeFalse();
+            validator.IsValidBinary("211,").Should().BeFalse();
         }
     }
 }

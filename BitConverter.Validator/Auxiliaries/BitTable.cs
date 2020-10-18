@@ -1,4 +1,4 @@
-﻿namespace BitConverter.Validator.BitTables
+﻿namespace BitConverter.Validator.Auxiliaries
 {
     public static class BitTable
     {

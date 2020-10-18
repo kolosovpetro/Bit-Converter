@@ -6,5 +6,6 @@
         bool IsValidOctal(string input);
         bool IsValidDecimal(string input);
         bool IsValidHexadecimal(string input);
+        bool Validate(string input, int inputBase);
     }
 }
