@@ -6,6 +6,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BitConverter.Tests", "BitCo
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BitConverter.UI", "BitConverter.UI\BitConverter.UI.csproj", "{BF32D1B9-BAAA-4A4D-A6ED-55E1FAFB6C9E}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BitConverter.Validator", "BitConverter.Validator\BitConverter.Validator.csproj", "{143CFBF5-0F9B-4980-83B2-A3ABFC23FFDF}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BitConverter.Validator.Tests", "BitConverter.Validator.Tests\BitConverter.Validator.Tests.csproj", "{C7204F28-A610-4767-9863-F0DDD63F90F3}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -24,5 +28,13 @@ Global
 		{BF32D1B9-BAAA-4A4D-A6ED-55E1FAFB6C9E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{BF32D1B9-BAAA-4A4D-A6ED-55E1FAFB6C9E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{BF32D1B9-BAAA-4A4D-A6ED-55E1FAFB6C9E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{143CFBF5-0F9B-4980-83B2-A3ABFC23FFDF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{143CFBF5-0F9B-4980-83B2-A3ABFC23FFDF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{143CFBF5-0F9B-4980-83B2-A3ABFC23FFDF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{143CFBF5-0F9B-4980-83B2-A3ABFC23FFDF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C7204F28-A610-4767-9863-F0DDD63F90F3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C7204F28-A610-4767-9863-F0DDD63F90F3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C7204F28-A610-4767-9863-F0DDD63F90F3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C7204F28-A610-4767-9863-F0DDD63F90F3}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
