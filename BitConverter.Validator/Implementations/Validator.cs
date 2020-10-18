@@ -1,6 +1,6 @@
-﻿using System;
-using System.Linq;
+﻿using System.Linq;
 using BitConverter.Validator.Auxiliaries;
+using BitConverter.Validator.Exceptions;
 using BitConverter.Validator.Interfaces;
 
 namespace BitConverter.Validator.Implementations
@@ -29,19 +29,14 @@ namespace BitConverter.Validator.Implementations
 
         public bool Validate(string input, int inputBase)
         {
-            switch (inputBase)
+            return inputBase switch
             {
-                case 2:
-                    return IsValidBinary(input);
-                case 8:
-                    return IsValidOctal(input);
-                case 10:
-                    return IsValidDecimal(input);
-                case 16:
-                    return IsValidHexadecimal(input);
-                default:
-                    return false;
-            }
+                2 => IsValidBinary(input),
+                8 => IsValidOctal(input),
+                10 => IsValidDecimal(input),
+                16 => IsValidHexadecimal(input),
+                _ => throw new UnsupportedBaseException("This base is not supported.")
+            };
         }
 
         private static bool BaseValidator(string input, char[] arr)

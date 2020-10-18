@@ -14,9 +14,6 @@ namespace BitConverter.Services.ToDecimal
         private static readonly StringBuilder Builder = new StringBuilder();
         private const int Precision = 6;
         
-        /// <summary>
-        /// This converts only FLOAT part of an entry
-        /// </summary>
         public static string Convert(INumber entry)
         {
             if (entry.Base == 10)
@@ -41,10 +38,6 @@ namespace BitConverter.Services.ToDecimal
                 .ToArray());
         }
         
-        /// <summary>
-        /// This gives an enumeration of models, which helps to perform easier conversion from
-        /// float part of an entry to decimal
-        /// </summary>
         private static IEnumerable<PolynomialModel> ConvertFloatModel(INumber entry)
         {
             var hexTable = BitTable.HexadecimalTable;

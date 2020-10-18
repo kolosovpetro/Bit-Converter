@@ -12,10 +12,7 @@ namespace BitConverter.Services.ToDecimal
     public static class IntegerPartToDecimal
     {
         private static readonly StringBuilder Builder = new StringBuilder();
-
-        /// <summary>
-        /// This converts only INTEGER part of Entry
-        /// </summary>
+        
         public static string Convert(INumber entry)
         {
             if (entry.Base == 10)
@@ -37,10 +34,6 @@ namespace BitConverter.Services.ToDecimal
             return result.ToString(CultureInfo.CurrentCulture);
         }
         
-        /// <summary>
-        /// This gives an enumeration of models, which helps to perform easier conversion from
-        /// integer part of an entry to decimal
-        /// </summary>
         private static IEnumerable<PolynomialModel> IntegerPartPolynomial(INumber entry)
         {
             var hexTable = BitTable.HexadecimalTable;

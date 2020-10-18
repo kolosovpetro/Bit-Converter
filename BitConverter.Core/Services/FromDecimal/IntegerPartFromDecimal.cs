@@ -9,10 +9,7 @@ namespace BitConverter.Services.FromDecimal
     public static class IntegerPartFromDecimal
     {
         private static readonly StringBuilder Builder = new StringBuilder();
-
-        /// <summary>
-        /// Converts decimal integer part to particular base
-        /// </summary>
+        
         public static string Convert(INumber entry, int newBase)
         {
             if (newBase == 10)
