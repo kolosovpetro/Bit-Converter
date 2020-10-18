@@ -1,7 +1,7 @@
-﻿using BitConverter.Auxiliaries;
-using BitConverter.Converters;
+﻿using BitConverter.Converters;
 using BitConverter.Interfaces;
 using BitConverter.Services.FromDecimal;
+using BitConverter.Validator.Auxiliaries;
 
 namespace BitConverter.Services
 {

@@ -40,7 +40,7 @@ namespace BitConverter.Validator.Implementations
                 case 16:
                     return IsValidHexadecimal(input);
                 default:
-                    throw new InvalidOperationException("Base is unsupported.");
+                    return false;
             }
         }
 
